@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://angular.io/guide/cheatsheet#cheat-sheet -->
+<html class="gr__angular_io"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Angular - Cheat Sheet</title><!--<base href="/">--><base href="."><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="https://angular.io/favicon.ico"><link rel="icon" type="image/x-icon" href="https://angular.io/assets/images/favicons/favicon.ico"><link rel="icon" type="image/png" href="https://angular.io/assets/images/favicons/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="https://angular.io/assets/images/favicons/favicon-194x194.png" sizes="194x194"><link rel="icon" type="image/png" href="https://angular.io/assets/images/favicons/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/png" href="https://angular.io/assets/images/favicons/favicon-16x16.png" sizes="16x16"><link rel="apple-touch-icon" sizes="144x144" href="https://angular.io/assets/images/favicons/apple-touch-icon-144x144.png"><link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://angular.io/assets/images/favicons/apple-touch-icon-144x144.png"><!-- NOTE: These need to be kept in sync with `ngsw-manifest.json`. --><link href="./Angular - Cheat Sheet_files/icon" rel="stylesheet"><link href="./Angular - Cheat Sheet_files/css" rel="stylesheet"><link href="./Angular - Cheat Sheet_files/font-awesome.min.css" rel="stylesheet"><!-- --><link rel="manifest" href="https://angular.io/pwa-manifest.json"><meta name="theme-color" content="#1976d2"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="translucent"><script async="" src="./Angular - Cheat Sheet_files/analytics.js.download"></script><script>// Dynamically, pre-emptively, add `noindex`, which will be removed when the doc is ready and valid
+    tag = document.createElement('meta'); tag.name = 'robots'; tag.content = 'noindex';
+    document.head.appendChild(tag);</script><!-- Google Analytics --><script>// Note this is a customised version of the GA tracking snippet
+  // See the comments below for more info
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+  ~i.name.indexOf('NG_DEFER_BOOTSTRAP')|| // only load library if not running e2e tests
+  m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');</script><!-- End Google Analytics --><script>// Report fatal errors to Google Analytics
+    window.onerror = function() {
+      ga('send', 'exception', {exDescription: formatError.apply(null, arguments), exFatal: true});
+
+      function formatError(msg, url, line, col, e) {
+        var stack;
+        msg = msg.replace(/^Error: /, '');
+        if (e) {
+          stack = e.stack
+              // strip the leading "Error: " from the stack trace
+              .replace(/^Error: /, '')
+              // strip the message from the stack trace, if present
+              .replace(msg + '\n', '')
+              // strip leading spaces
+              .replace(/^ +/gm, '')
+              // strip all leading "at " for each frame
+              .replace(/^at /gm, '')
+              // replace long urls with just the last segment: `filename:line:column`
+              .replace(/(?: \(|@)http.+\/([^/)]+)\)?(?:\n|$)/gm, '@$1\n')
+              // replace "eval code" in Edge
+              .replace(/ *\(eval code(:\d+:\d+)\)(?:\n|$)/gm, '@???$1\n')
+        } else {
+          line = line || '?';
+          col = col || '?';
+          stack = url + ':' + line + ':' + col;
+        }
+        return (msg + '\n' + stack).substr(0, 150);
+      }
+    };</script><script>if (window.document.documentMode) {
+      // polyfill IE11 in a blocking way
+      var s = document.createElement('script');
+      s.src = 'generated/ie-polyfills.min.js';
+      document.head.appendChild(s);
+    } else if (!Object.assign) {
+      // polyfill other non-evergreen browsers in a blocking way
+      var polyfillUrl = "https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.find&flags=gated&unknown=polyfill";
+
+      // send a blocking XHR to fetch the polyfill
+      // then append it to the document so that its eval-ed synchronously
+      // this is required because the method used for IE is not reliable with other non-evergreen browsers
+      var xhr = new XMLHttpRequest();
+      xhr.addEventListener("load", function() {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        var code = this.responseText;
+        s.appendChild(document.createTextNode(code));
+        document.head.appendChild(s);
+      });
+      xhr.open("GET", polyfillUrl, false);
+      xhr.send();
+    }</script><link href="./Angular - Cheat Sheet_files/styles.f7cf323c214ad4ca8102.bundle.css" rel="stylesheet"><style>.mat-toolbar-row,.mat-toolbar-single-row{display:flex;box-sizing:border-box;padding:0 16px;width:100%;flex-direction:row;align-items:center;white-space:nowrap}.mat-toolbar-multiple-rows{display:flex;box-sizing:border-box;flex-direction:column;width:100%}.mat-toolbar-multiple-rows{min-height:64px}.mat-toolbar-row,.mat-toolbar-single-row{height:64px}@media (max-width:600px){.mat-toolbar-multiple-rows{min-height:56px}.mat-toolbar-row,.mat-toolbar-single-row{height:56px}}</style><style>.mat-button,.mat-fab,.mat-icon-button,.mat-mini-fab,.mat-raised-button{box-sizing:border-box;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:pointer;outline:0;border:none;-webkit-tap-highlight-color:transparent;display:inline-block;white-space:nowrap;text-decoration:none;vertical-align:baseline;text-align:center;margin:0;min-width:88px;line-height:36px;padding:0 16px;border-radius:2px}[disabled].mat-button,[disabled].mat-fab,[disabled].mat-icon-button,[disabled].mat-mini-fab,[disabled].mat-raised-button{cursor:default}.cdk-keyboard-focused.mat-button .mat-button-focus-overlay,.cdk-keyboard-focused.mat-fab .mat-button-focus-overlay,.cdk-keyboard-focused.mat-icon-button .mat-button-focus-overlay,.cdk-keyboard-focused.mat-mini-fab .mat-button-focus-overlay,.cdk-keyboard-focused.mat-raised-button .mat-button-focus-overlay,.cdk-program-focused.mat-button .mat-button-focus-overlay,.cdk-program-focused.mat-fab .mat-button-focus-overlay,.cdk-program-focused.mat-icon-button .mat-button-focus-overlay,.cdk-program-focused.mat-mini-fab .mat-button-focus-overlay,.cdk-program-focused.mat-raised-button .mat-button-focus-overlay{opacity:1}.mat-button::-moz-focus-inner,.mat-fab::-moz-focus-inner,.mat-icon-button::-moz-focus-inner,.mat-mini-fab::-moz-focus-inner,.mat-raised-button::-moz-focus-inner{border:0}.mat-fab,.mat-mini-fab,.mat-raised-button{transform:translate3d(0,0,0);transition:background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1)}.mat-fab:not([class*=mat-elevation-z]),.mat-mini-fab:not([class*=mat-elevation-z]),.mat-raised-button:not([class*=mat-elevation-z]){box-shadow:0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)}.mat-fab:not([disabled]):active:not([class*=mat-elevation-z]),.mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]),.mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12)}[disabled].mat-fab,[disabled].mat-mini-fab,[disabled].mat-raised-button{box-shadow:none}.mat-button .mat-button-focus-overlay,.mat-icon-button .mat-button-focus-overlay{transition:none;opacity:0}.mat-button:hover .mat-button-focus-overlay{opacity:1}.mat-fab{min-width:0;border-radius:50%;width:56px;height:56px;padding:0;flex-shrink:0}.mat-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12)}.mat-fab:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)}.mat-fab .mat-button-wrapper{padding:16px 0;display:inline-block;line-height:24px}.mat-mini-fab{min-width:0;border-radius:50%;width:40px;height:40px;padding:0;flex-shrink:0}.mat-mini-fab:not([class*=mat-elevation-z]){box-shadow:0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12)}.mat-mini-fab:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow:0 7px 8px -4px rgba(0,0,0,.2),0 12px 17px 2px rgba(0,0,0,.14),0 5px 22px 4px rgba(0,0,0,.12)}.mat-mini-fab .mat-button-wrapper{padding:8px 0;display:inline-block;line-height:24px}.mat-icon-button{padding:0;min-width:0;width:40px;height:40px;flex-shrink:0;line-height:40px;border-radius:50%}.mat-icon-button .mat-icon,.mat-icon-button i{line-height:24px}.mat-button,.mat-fab,.mat-icon-button,.mat-mini-fab,.mat-raised-button{color:currentColor}.mat-button .mat-button-wrapper>*,.mat-fab .mat-button-wrapper>*,.mat-icon-button .mat-button-wrapper>*,.mat-mini-fab .mat-button-wrapper>*,.mat-raised-button .mat-button-wrapper>*{vertical-align:middle}.mat-button-focus-overlay,.mat-button-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none}.mat-button-focus-overlay{background-color:rgba(0,0,0,.12);border-radius:inherit;opacity:0;transition:opacity .2s cubic-bezier(.35,0,.25,1),background-color .2s cubic-bezier(.35,0,.25,1)}@media screen and (-ms-high-contrast:active){.mat-button-focus-overlay{background-color:rgba(255,255,255,.5)}}.mat-button-ripple-round{border-radius:50%;z-index:1}@media screen and (-ms-high-contrast:active){.mat-button,.mat-fab,.mat-icon-button,.mat-mini-fab,.mat-raised-button{outline:solid 1px}}</style><style>.mat-icon{background-repeat:no-repeat;display:inline-block;fill:currentColor;height:24px;width:24px}</style><style>.mat-drawer-container{position:relative;z-index:1;box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:hidden}.mat-drawer-container[fullscreen]{top:0;left:0;right:0;bottom:0;position:absolute}.mat-drawer-container[fullscreen].mat-drawer-opened{overflow:hidden}.mat-drawer-backdrop{top:0;left:0;right:0;bottom:0;position:absolute;display:block;z-index:3;visibility:hidden}.mat-drawer-backdrop.mat-drawer-shown{visibility:visible}.mat-drawer-transition .mat-drawer-backdrop{transition-duration:.4s;transition-timing-function:cubic-bezier(.25,.8,.25,1);transition-property:background-color,visibility}@media screen and (-ms-high-contrast:active){.mat-drawer-backdrop{opacity:.5}}.mat-drawer-content{-webkit-backface-visibility:hidden;backface-visibility:hidden;position:relative;z-index:1;display:block;height:100%;overflow:auto}.mat-drawer-transition .mat-drawer-content{transition-duration:.4s;transition-timing-function:cubic-bezier(.25,.8,.25,1);transition-property:transform,margin-left,margin-right}.mat-drawer{position:relative;z-index:4;display:block;position:absolute;top:0;bottom:0;z-index:3;min-width:5vw;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%,0,0)}.mat-drawer.mat-drawer-side{z-index:2}.mat-drawer.mat-drawer-end{right:0;transform:translate3d(100%,0,0)}[dir=rtl] .mat-drawer{transform:translate3d(100%,0,0)}[dir=rtl] .mat-drawer.mat-drawer-end{left:0;right:auto;transform:translate3d(-100%,0,0)}.mat-drawer:not(.mat-drawer-side){box-shadow:0 8px 10px -5px rgba(0,0,0,.2),0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12)}.mat-sidenav-fixed{position:fixed}</style></head><body data-gr-c-s-loaded="true"><aio-shell ng-version="5.2.0" class="mode-stable sidenav-open page-guide-cheatsheet folder-guide view-SideNav aio-notification-hide"><div id="top-of-page"></div><!----><mat-toolbar class="app-toolbar no-print mat-toolbar mat-primary mat-toolbar-multiple-rows" color="primary"><mat-toolbar-row class="notification-container mat-toolbar-row"><aio-notification actionurl="https://bit.ly/angular-survey-2018" buttontext="Go to survey" expirationdate="2018-01-19" icon="insert_comment" iconlabel="Survey" notificationid="survey-january-2018" class="ng-tns-c2-0 ng-trigger ng-trigger-hideAnimation" style="height: 0px;"><a class="content" href="https://bit.ly/angular-survey-2018"><mat-icon class="icon mat-icon" role="img" aria-hidden="true" aria-label="Survey"><svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></mat-icon><span class="message"> Help Angular by taking a <b>1 minute survey</b>! </span><span class="action-button">Go to survey</span></a><button class="close-button mat-icon-button" aria-label="Close" mat-icon-button=""><span class="mat-button-wrapper"><mat-icon aria-label="Dismiss notification" class="mat-icon ng-tns-c2-0" role="img" svgicon="close" aria-hidden="true"><svg fill="#ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></mat-icon></span><div class="mat-button-ripple mat-ripple mat-button-ripple-round" matripple=""></div><div class="mat-button-focus-overlay"></div></button></aio-notification></mat-toolbar-row><mat-toolbar-row class="mat-toolbar-row"><button class="hamburger mat-button" mat-button="" title="Docs menu"><span class="mat-button-wrapper"><mat-icon class="mat-icon" role="img" svgicon="menu" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg></mat-icon></span><div class="mat-button-ripple mat-ripple" matripple=""></div><div class="mat-button-focus-overlay"></div></button><a class="nav-link home" href="https://angular.io/"><!----><img alt="Home" height="40" src="./Angular - Cheat Sheet_files/logo-nav@2x.png" title="Home" width="150" class="ng-star-inserted"><!----></a><!----><aio-top-menu class="ng-star-inserted"><ul role="navigation"><!----><li class="ng-star-inserted"><a class="nav-link" href="https://angular.io/features" title="Features">Features</a></li><li class="ng-star-inserted"><a class="nav-link" href="https://angular.io/docs" title="Docs">Docs</a></li><li class="ng-star-inserted"><a class="nav-link" href="https://angular.io/resources" title="Resources">Resources</a></li><li class="ng-star-inserted"><a class="nav-link" href="https://angular.io/events" title="Events">Events</a></li><li class="ng-star-inserted"><a class="nav-link" href="https://blog.angular.io/" title="Blog">Blog</a></li></ul></aio-top-menu><aio-search-box class="search-container"><input aria-label="search" placeholder="Search" type="search"></aio-search-box></mat-toolbar-row></mat-toolbar><!----><mat-sidenav-container class="sidenav-container mat-drawer-container mat-sidenav-container mat-drawer-transition" role="main"><div class="mat-drawer-backdrop"></div><div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div><mat-sidenav class="sidenav mat-drawer mat-sidenav ng-tns-c6-1 ng-trigger ng-trigger-transform mat-drawer-side ng-star-inserted" tabindex="-1" style="transform: translate3d(0px, 0px, 0px); visibility: visible;"><!----><aio-nav-menu><!----><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-1 collapsed" href="https://angular.io/guide/quickstart" title="A gentle introduction to Angular."> Getting Started </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><!----><div class="ng-star-inserted"><!----><!----><button class="vertical-menu-item heading level-1 collapsed ng-star-inserted" type="button" title="The Tour of Heroes tutorial takes you through the steps of creating an Angular application in TypeScript." aria-pressed="false"> Tutorial <mat-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon></button><div class="heading-children level-1 collapsed"><!----><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial" title="Part 1: Introduction to the Tour of Heroes tutorial"> 1. Introduction </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/toh-pt0" title="Part 2: Creating the application shell"> 2. The Application Shell </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/toh-pt1" title="Part 3: Build a simple hero editor"> 3. The Hero Editor </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/toh-pt2" title="Part 4: Build a master/detail page with a list of heroes."> 4. Displaying a List </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/toh-pt3" title="Part 5: Refactor the master/detail view into separate components."> 5. Master/Detail Components </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/toh-pt4" title="Part 6: Create a reusable service to manage hero data."> 6. Services </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/toh-pt5" title="Part 7: Add the Angular router and navigate among the views."> 7. Routing </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/tutorial/toh-pt6" title="Part 8: Use HTTP to retrieve and save hero data."> 8. HTTP </a></div><!----></aio-nav-item></div></div></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><!----><div class="ng-star-inserted"><!----><!----><button class="vertical-menu-item heading level-1 expanded selected ng-star-inserted" type="button" title="The fundamentals of Angular" aria-pressed="true"> Fundamentals <mat-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon></button><div class="heading-children level-1 expanded selected"><!----><aio-nav-item class="ng-star-inserted"><!----><!----><div class="ng-star-inserted"><!----><!----><button class="vertical-menu-item heading level-2 collapsed ng-star-inserted" type="button" title="The basic building blocks of Angular applications." aria-pressed="false"> Architecture <mat-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon></button><div class="heading-children level-2 collapsed"><!----><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/architecture" title="Basic building blocks of Angular applications."> Architecture Overview </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/architecture-modules" title="About NgModules."> Intro to Modules </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/architecture-components" title="About Components, Templates, and Views."> Intro to Components </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/architecture-services" title="About services and dependency injection."> Intro to Services and DI </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/architecture-next-steps" title="Beyond the basics."> Next Steps </a></div><!----></aio-nav-item></div></div></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><!----><div class="ng-star-inserted"><!----><!----><button class="vertical-menu-item heading level-2 collapsed ng-star-inserted" type="button" title="Building dynamic views with data binding" aria-pressed="false"> Components &amp; Templates <mat-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon></button><div class="heading-children level-2 collapsed"><!----><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/displaying-data" title="Property binding helps show app data in the UI."> Displaying Data </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/template-syntax" title="Learn how to write templates that display data and consume user events with the help of data binding."> Template Syntax </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/lifecycle-hooks" title="Angular calls lifecycle hook methods on directives and components as it creates, changes, and destroys them."> Lifecycle Hooks </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/component-interaction" title="Share information between different directives and components."> Component Interaction </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/component-styles" title="Add CSS styles that are specific to a component."> Component Styles </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/dynamic-component-loader" title="Load components dynamically."> Dynamic Components </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/attribute-directives" title="Attribute directives attach behavior to elements."> Attribute Directives </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/structural-directives" title="Structural directives manipulate the layout of the page."> Structural Directives </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/pipes" title="Pipes transform displayed values within a template."> Pipes </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/animations" title="A guide to Angular&#39;s animation system."> Animations </a></div><!----></aio-nav-item></div></div></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><!----><div class="ng-star-inserted"><!----><!----><button class="vertical-menu-item heading level-2 collapsed ng-star-inserted" type="button" title="Angular Forms" aria-pressed="false"> Forms <mat-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon></button><div class="heading-children level-2 collapsed"><!----><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/user-input" title="User input triggers DOM events. We listen to those events with event bindings that funnel updated values back into our components and models."> User Input </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/forms" title="A form creates a cohesive, effective, and compelling data entry experience. An Angular form coordinates a set of data-bound user controls, tracks changes, validates input, and presents errors."> Template-driven Forms </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/form-validation" title="Validate user&#39;s form entries."> Form Validation </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/reactive-forms" title="Create a reactive form using FormBuilder, groups, and arrays."> Reactive Forms </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/dynamic-form" title="Render dynamic forms with FormGroup."> Dynamic forms </a></div><!----></aio-nav-item></div></div></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><!----><div class="ng-star-inserted"><!----><!----><button class="vertical-menu-item heading level-2 collapsed ng-star-inserted" type="button" title="Observables &amp; RxJS" aria-pressed="false"> Observables &amp; RxJS <mat-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon></button><div class="heading-children level-2 collapsed"><!----><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/observables" title=""> Observables </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/rx-library" title=""> The RxJS Library </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/observables-in-angular" title=""> Observables in Angular </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/practical-observable-usage" title=""> Practical Usage </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/comparing-observables" title=""> Compare to Other Techniques </a></div><!----></aio-nav-item></div></div></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/guide/bootstrapping" title="Tell Angular how to construct and bootstrap the app in the root &quot;AppModule&quot;."> Bootstrapping </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><!----><div class="ng-star-inserted"><!----><!----><button class="vertical-menu-item heading level-2 collapsed ng-star-inserted" type="button" title="NgModules." aria-pressed="false"> NgModules <mat-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon></button><div class="heading-children level-2 collapsed"><!----><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/ngmodules" title="Use NgModules to make your apps efficient."> NgModules Introduction </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/ngmodule-vs-jsmodule" title="Differentiate between JavaScript modules and NgModules."> JS Modules vs NgModules </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/frequent-ngmodules" title="Introduction to the most frequently used NgModules."> Frequently Used NgModules </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/module-types" title="Description of the different types of feature modules."> Types of Feature Modules </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/entry-components" title="All about entry components in Angular."> Entry Components </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/feature-modules" title="Create feature modules to organize your code."> Feature Modules </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/providers" title="Providers and NgModules."> Providers </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/singleton-services" title="Creating singleton services."> Singleton Services </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/lazy-loading-ngmodules" title="Lazy load modules to speed up your apps."> Lazy Loading Feature Modules </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/sharing-ngmodules" title="Share NgModules to streamline your apps."> Sharing NgModules </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/ngmodule-api" title="Understand the details of NgModules."> NgModule API </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/ngmodule-faq" title="Answers to frequently asked questions about NgModules."> NgModule FAQs </a></div><!----></aio-nav-item></div></div></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><!----><div class="ng-star-inserted"><!----><!----><button class="vertical-menu-item heading level-2 collapsed ng-star-inserted" type="button" title="Dependency Injection: creating and injecting services" aria-pressed="false"> Dependency Injection <mat-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon></button><div class="heading-children level-2 collapsed"><!----><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/dependency-injection-pattern" title="Learn about the dependency injection pattern behind the Angular DI system."> The Dependency Injection pattern </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/dependency-injection" title="Angular&#39;s dependency injection system creates and delivers dependent services to Angular-created classes."> Angular Dependency Injection </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/hierarchical-dependency-injection" title="Angular&#39;s hierarchical dependency injection system supports nested injectors in parallel with the component tree."> Hierarchical Injectors </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/dependency-injection-in-action" title="Techniques for Dependency Injection."> DI in Action </a></div><!----></aio-nav-item></div></div></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/guide/http" title="Use HTTP to talk to a remote server."> HttpClient </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/guide/router" title="Discover the basics of screen navigation with the Angular Router."> Routing &amp; Navigation </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/guide/testing" title="Techniques and practices for testing an Angular app."> Testing </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 expanded selected" href="https://angular.io/guide/cheatsheet" title="A quick guide to common Angular coding techniques."> Cheat Sheet </a></div><!----></aio-nav-item></div></div></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><!----><div class="ng-star-inserted"><!----><!----><button class="vertical-menu-item heading level-1 collapsed ng-star-inserted" type="button" title="Techniques for putting Angular to work in your environment" aria-pressed="false"> Techniques <mat-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon></button><div class="heading-children level-1 collapsed"><!----><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/guide/i18n" title="Translate the app&#39;s template text into multiple languages."> Internationalization (i18n) </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/guide/language-service" title="Use Angular Language Service to speed up dev time."> Language Service </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/guide/security" title="Developing for content security in Angular applications."> Security </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><!----><div class="ng-star-inserted"><!----><!----><button class="vertical-menu-item heading level-2 collapsed ng-star-inserted" type="button" title="Setup and Deployment" aria-pressed="false"> Setup &amp; Deployment <mat-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon></button><div class="heading-children level-2 collapsed"><!----><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/setup" title="Install the Angular QuickStart seed for faster, more efficient development on your machine."> Setup for local development </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/setup-systemjs-anatomy" title="Inside the local development environment for SystemJS."> Anatomy of the Setup </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/browser-support" title="Browser support and polyfills guide."> Browser Support </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/npm-packages" title="Recommended npm packages, and how to specify package dependencies."> Npm Packages </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/typescript-configuration" title="TypeScript configuration for Angular developers."> TypeScript Configuration </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/aot-compiler" title="Learn why and how to use the Ahead-of-Time (AOT) compiler."> Ahead-of-Time Compilation </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/deployment" title="Learn how to deploy your Angular app."> Deployment </a></div><!----></aio-nav-item></div></div></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><!----><div class="ng-star-inserted"><!----><!----><button class="vertical-menu-item heading level-2 collapsed ng-star-inserted" type="button" title="Angular service workers: Controlling caching of application resources." aria-pressed="false"> Service Workers <mat-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon></button><div class="heading-children level-2 collapsed"><!----><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/service-worker-intro" title="Angular&#39;s implementation of service workers improves user experience with slow or unreliable network connectivity."> Introduction </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/service-worker-getting-started" title="Enabling the service worker in a CLI project and observing behavior in the browser."> Getting Started </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/service-worker-communications" title="Services that enable you to interact with an Angular service worker."> Service Worker Communication </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/service-worker-devops" title="Running applications with service workers, managing application update, debugging, and killing applications."> Service Worker in Production </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/service-worker-config" title="Configuring service worker caching behavior."> Service Worker Configuration </a></div><!----></aio-nav-item></div></div></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><!----><div class="ng-star-inserted"><!----><!----><button class="vertical-menu-item heading level-2 collapsed ng-star-inserted" type="button" title="Incrementally upgrade an AngularJS application to Angular." aria-pressed="false"> Upgrading <mat-icon class="rotating-icon mat-icon" role="img" svgicon="keyboard_arrow_right" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24"><path d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"></path></svg></mat-icon></button><div class="heading-children level-2 collapsed"><!----><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/upgrade" title="Incrementally upgrade an AngularJS application to Angular."> Upgrading from AngularJS </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-3 collapsed" href="https://angular.io/guide/ajs-quick-reference" title="Learn how AngularJS concepts and techniques map to Angular."> Upgrade Cheatsheet </a></div><!----></aio-nav-item></div></div></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/guide/universal" title="Render HTML server-side with Angular Universal."> Server-side Rendering </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/guide/visual-studio-2015" title="Use Visual Studio 2015 with the QuickStart files."> Visual Studio 2015 QuickStart </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/guide/styleguide" title="Write Angular with style."> Style Guide </a></div><!----></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-2 collapsed" href="https://angular.io/guide/glossary" title="Brief definitions of the most important words in the Angular vocabulary."> Glossary </a></div><!----></aio-nav-item></div></div></aio-nav-item><aio-nav-item class="ng-star-inserted"><!----><div class="ng-star-inserted"><a class="vertical-menu-item level-1 collapsed" href="https://angular.io/api" title="Details of the Angular classes and values."> API </a></div><!----></aio-nav-item></aio-nav-menu><div class="doc-version"><aio-select><div class="form-select-menu"><button class="form-select-button"><strong></strong><!---->stable (v5.2.10) </button><!----></div></aio-select></div></mat-sidenav><div tabindex="-1" class="cdk-visually-hidden cdk-focus-trap-anchor"></div><!----><mat-sidenav-content cdkscrollable="" class="mat-drawer-content mat-sidenav-content ng-star-inserted" style="margin-left: 262px; margin-right: 0px;"><section class="sidenav-content" role="content" id="guide-cheatsheet"><aio-mode-banner><!----></aio-mode-banner><aio-doc-viewer class=""><div style="opacity: 1;">
+<div class="content">
+<h1 class="no-toc" id="cheat-sheet"><a title="Link to this heading" class="header-link" aria-hidden="true" href="https://angular.io/guide/cheatsheet#cheat-sheet"><i class="material-icons">link</i></a>Cheat Sheet</h1>
+<div id="cheatsheet">
+<table class="is-full-width is-fixed-layout">
+<tbody><tr>
+<th>Bootstrapping</th>
+<th><p><code>import { <a href="https://angular.io/api/platform-browser-dynamic/platformBrowserDynamic" class="code-anchor">platformBrowserDynamic</a> } from '@angular/platform-browser-dynamic';</code>
+</p>
+</th>
+</tr>
+<tr>
+<td><code><b><a href="https://angular.io/api/platform-browser-dynamic/platformBrowserDynamic" class="code-anchor">platformBrowserDynamic</a>().bootstrapModule</b>(AppModule);</code></td>
+<td><p>Bootstraps the app, using the root component from the specified <code><a href="https://angular.io/api/core/NgModule" class="code-anchor">NgModule</a></code>. </p>
+</td>
+</tr>
+</tbody></table>
+<table class="is-full-width is-fixed-layout">
+<tbody><tr>
+<th>NgModules</th>
+<th><p><code>import { <a href="https://angular.io/api/core/NgModule" class="code-anchor">NgModule</a> } from '@angular/core';</code>
+</p>
+</th>
+</tr>
+<tr>
+<td><code>@<b><a href="https://angular.io/api/core/NgModule" class="code-anchor">NgModule</a></b>({ declarations: ..., imports: ...,<br>     exports: ..., providers: ..., bootstrap: ...})<br>class MyModule {}</code></td>
+<td><p>Defines a module that contains components, directives, pipes, and providers.</p>
+</td>
+</tr><tr>
+<td><code><b>declarations:</b> [MyRedComponent, MyBlueComponent, MyDatePipe]</code></td>
+<td><p>List of components, directives, and pipes that belong to this module.</p>
+</td>
+</tr><tr>
+<td><code><b>imports:</b> [<a href="https://angular.io/api/platform-browser/BrowserModule" class="code-anchor">BrowserModule</a>, SomeOtherModule]</code></td>
+<td><p>List of modules to import into this module. Everything from the imported modules
+is available to <code>declarations</code> of this module.</p>
+</td>
+</tr><tr>
+<td><code><b>exports:</b> [MyRedComponent, MyDatePipe]</code></td>
+<td><p>List of components, directives, and pipes visible to modules that import this module.</p>
+</td>
+</tr><tr>
+<td><code><b>providers:</b> [MyService, { provide: ... }]</code></td>
+<td><p>List of dependency injection providers visible both to the contents of this module and to importers of this module.</p>
+</td>
+</tr><tr>
+<td><code><b>bootstrap:</b> [MyAppComponent]</code></td>
+<td><p>List of components to bootstrap when this module is bootstrapped.</p>
+</td>
+</tr>
+</tbody></table>
+<table class="is-full-width is-fixed-layout">
+<tbody><tr>
+<th>Template syntax</th>
+<th></th>
+</tr>
+<tr>
+<td><code>&lt;input <b>[value]</b>="firstName"&gt;</code></td>
+<td><p>Binds property <code>value</code> to the result of expression <code>firstName</code>.</p>
+</td>
+</tr><tr>
+<td><code>&lt;div <b>[attr.role]</b>="myAriaRole"&gt;</code></td>
+<td><p>Binds attribute <code>role</code> to the result of expression <code>myAriaRole</code>.</p>
+</td>
+</tr><tr>
+<td><code>&lt;div <b>[class.extra-sparkle]</b>="isDelightful"&gt;</code></td>
+<td><p>Binds the presence of the CSS class <code>extra-sparkle</code> on the element to the truthiness of the expression <code>isDelightful</code>.</p>
+</td>
+</tr><tr>
+<td><code>&lt;div <b>[style.width.px]</b>="mySize"&gt;</code></td>
+<td><p>Binds style property <code>width</code> to the result of expression <code>mySize</code> in pixels. Units are optional.</p>
+</td>
+</tr><tr>
+<td><code>&lt;button <b>(click)</b>="readRainbow($event)"&gt;</code></td>
+<td><p>Calls method <code>readRainbow</code> when a click event is triggered on this button element (or its children) and passes in the event object.</p>
+</td>
+</tr><tr>
+<td><code>&lt;div title="Hello <b>{{ponyName}}</b>"&gt;</code></td>
+<td><p>Binds a property to an interpolated string, for example, "Hello Seabiscuit". Equivalent to:
+<code>&lt;div [title]="'Hello ' + ponyName"&gt;</code></p>
+</td>
+</tr><tr>
+<td><code>&lt;p&gt;Hello <b>{{ponyName}}</b>&lt;/p&gt;</code></td>
+<td><p>Binds text content to an interpolated string, for example, "Hello Seabiscuit".</p>
+</td>
+</tr><tr>
+<td><code>&lt;my-cmp <b>[(title)]</b>="name"&gt;</code></td>
+<td><p>Sets up two-way data binding. Equivalent to: <code>&lt;my-cmp [title]="name" (titleChange)="name=$event"&gt;</code></p>
+</td>
+</tr><tr>
+<td><code>&lt;video <b>#movieplayer</b> ...&gt;<br>  &lt;button <b>(click)</b>="movieplayer.play()"&gt;<br>&lt;/video&gt;</code></td>
+<td><p>Creates a local variable <code>movieplayer</code> that provides access to the <code>video</code> element instance in data-binding and event-binding expressions in the current template.</p>
+</td>
+</tr><tr>
+<td><code>&lt;p <b>*myUnless</b>="myExpression"&gt;...&lt;/p&gt;</code></td>
+<td><p>The <code>*</code> symbol turns the current element into an embedded template. Equivalent to:
+<code>&lt;ng-template [myUnless]="myExpression"&gt;&lt;p&gt;...&lt;/p&gt;&lt;/ng-template&gt;</code></p>
+</td>
+</tr><tr>
+<td><code>&lt;p&gt;Card No.: <b>{{cardNumber | myCardNumberFormatter}}</b>&lt;/p&gt;</code></td>
+<td><p>Transforms the current value of expression <code>cardNumber</code> via the pipe called <code>myCardNumberFormatter</code>.</p>
+</td>
+</tr><tr>
+<td><code>&lt;p&gt;Employer: <b>{{employer?.companyName}}</b>&lt;/p&gt;</code></td>
+<td><p>The safe navigation operator (<code>?</code>) means that the <code>employer</code> field is optional and if <code>undefined</code>, the rest of the expression should be ignored.</p>
+</td>
+</tr><tr>
+<td><code>&lt;<b>svg:</b>rect x="0" y="0" width="100" height="100"/&gt;</code></td>
+<td><p>An SVG snippet template needs an <code>svg:</code> prefix on its root element to disambiguate the SVG element from an HTML component.</p>
+</td>
+</tr><tr>
+<td><code>&lt;<b>svg</b>&gt;<br>  &lt;rect x="0" y="0" width="100" height="100"/&gt;<br>&lt;/<b>svg</b>&gt;</code></td>
+<td><p>An <code>&lt;svg&gt;</code> root element is detected as an SVG element automatically, without the prefix.</p>
+</td>
+</tr>
+</tbody></table>
+<table class="is-full-width is-fixed-layout">
+<tbody><tr>
+<th>Built-in directives</th>
+<th><p><code>import { <a href="https://angular.io/api/common/CommonModule" class="code-anchor">CommonModule</a> } from '@angular/common';</code>
+</p>
+</th>
+</tr>
+<tr>
+<td><code>&lt;section <b>*ngIf</b>="showSection"&gt;</code></td>
+<td><p>Removes or recreates a portion of the DOM tree based on the <code>showSection</code> expression.</p>
+</td>
+</tr><tr>
+<td><code>&lt;li <b>*ngFor</b>="let item of list"&gt;</code></td>
+<td><p>Turns the li element and its contents into a template, and uses that to instantiate a view for each item in list.</p>
+</td>
+</tr><tr>
+<td><code>&lt;div <b>[<a href="https://angular.io/api/common/NgSwitch" class="code-anchor">ngSwitch</a>]</b>="conditionExpression"&gt;<br>  &lt;ng-template <b>[<b><a href="https://angular.io/api/common/NgSwitchCase" class="code-anchor">ngSwitchCase</a></b>]</b>="case1Exp"&gt;...&lt;/ng-template&gt;<br>  &lt;ng-template <b>ngSwitchCase</b>="case2LiteralString"&gt;...&lt;/ng-template&gt;<br>  &lt;ng-template <b>ngSwitchDefault</b>&gt;...&lt;/ng-template&gt;<br>&lt;/div&gt;</code></td>
+<td><p>Conditionally swaps the contents of the div by selecting one of the embedded templates based on the current value of <code>conditionExpression</code>.</p>
+</td>
+</tr><tr>
+<td><code>&lt;div <b>[ngClass]</b>="{'active': isActive, 'disabled': isDisabled}"&gt;</code></td>
+<td><p>Binds the presence of CSS classes on the element to the truthiness of the associated map values. The right-hand expression should return {class-name: true/false} map.</p>
+</td>
+</tr>
+<tr>
+<td><code>&lt;div <b>[ngStyle]</b>="{'property': 'value'}"&gt;</code><br><code>&lt;div <b>[ngStyle]</b>="dynamicStyles()"&gt;</code></td>
+<td><p>Allows you to assign styles to an HTML element using CSS. You can use CSS directly, as in the first example, or you can call a method from the component.</p>
+</td>
+</tr>
+</tbody></table>
+<table class="is-full-width is-fixed-layout">
+<tbody><tr>
+<th>Forms</th>
+<th><p><code>import { <a href="https://angular.io/api/forms/FormsModule" class="code-anchor">FormsModule</a> } from '@angular/forms';</code>
+</p>
+</th>
+</tr>
+<tr>
+<td><code>&lt;input <b>[(ngModel)]</b>="userName"&gt;</code></td>
+<td><p>Provides two-way data-binding, parsing, and validation for form controls.</p>
+</td>
+</tr>
+</tbody></table>
+<table class="is-full-width is-fixed-layout">
+<tbody><tr>
+<th>Class decorators</th>
+<th><p><code>import { <a href="https://angular.io/api/core/Directive" class="code-anchor">Directive</a>, ... } from '@angular/core';</code>
+</p>
+</th>
+</tr>
+<tr>
+<td><code><b>@<a href="https://angular.io/api/core/Component" class="code-anchor">Component</a>({...})</b><br>class MyComponent() {}</code></td>
+<td><p>Declares that a class is a component and provides metadata about the component.</p>
+</td>
+</tr><tr>
+<td><code><b>@<a href="https://angular.io/api/core/Directive" class="code-anchor">Directive</a>({...})</b><br>class MyDirective() {}</code></td>
+<td><p>Declares that a class is a directive and provides metadata about the directive.</p>
+</td>
+</tr><tr>
+<td><code><b>@<a href="https://angular.io/api/core/Pipe" class="code-anchor">Pipe</a>({...})</b><br>class MyPipe() {}</code></td>
+<td><p>Declares that a class is a pipe and provides metadata about the pipe.</p>
+</td>
+</tr><tr>
+<td><code><b>@<a href="https://angular.io/api/core/Injectable" class="code-anchor">Injectable</a>()</b><br>class MyService() {}</code></td>
+<td><p>Declares that a class has dependencies that should be injected into the constructor when the dependency injector is creating an instance of this class.
+</p>
+</td>
+</tr>
+</tbody></table>
+<table class="is-full-width is-fixed-layout">
+<tbody><tr>
+<th>Directive configuration</th>
+<th><p><code>@<a href="https://angular.io/api/core/Directive" class="code-anchor">Directive</a>({ property1: value1, ... })</code>
+</p>
+</th>
+</tr>
+<tr>
+<td><code><b>selector:</b> '.cool-button:not(<a href="https://angular.io/api/router/RouterLinkWithHref" class="code-anchor">a</a>)'</code></td>
+<td><p>Specifies a CSS selector that identifies this directive within a template. Supported selectors include <code>element</code>,
+<code>[attribute]</code>, <code>.class</code>, and <code>:not()</code>.</p>
+<p>Does not support parent-child relationship selectors.</p>
+</td>
+</tr><tr>
+<td><code><b>providers:</b> [MyService, { provide: ... }]</code></td>
+<td><p>List of dependency injection providers for this directive and its children.</p>
+</td>
+</tr>
+</tbody></table>
+<table class="is-full-width is-fixed-layout">
+<tbody><tr>
+<th>Component configuration</th>
+<th><p>
+<code>@<a href="https://angular.io/api/core/Component" class="code-anchor">Component</a></code> extends <code>@<a href="https://angular.io/api/core/Directive" class="code-anchor">Directive</a></code>,
+so the <code>@<a href="https://angular.io/api/core/Directive" class="code-anchor">Directive</a></code> configuration applies to components as well</p>
+</th>
+</tr>
+<tr>
+<td><code><b>moduleId:</b> module.id</code></td>
+<td><p>If set, the <code>templateUrl</code> and <code>styleUrl</code> are resolved relative to the component.</p>
+</td>
+</tr><tr>
+<td><code><b>viewProviders:</b> [MyService, { provide: ... }]</code></td>
+<td><p>List of dependency injection providers scoped to this component's view.</p>
+</td>
+</tr><tr>
+<td><code><b>template:</b> 'Hello {{name}}'<br><b>templateUrl:</b> 'my-component.html'</code></td>
+<td><p>Inline template or external template URL of the component's view.</p>
+</td>
+</tr><tr>
+<td><code><b>styles:</b> ['.primary {color: red}']<br><b>styleUrls:</b> ['my-component.css']</code></td>
+<td><p>List of inline CSS styles or external stylesheet URLs for styling the component’s view.</p>
+</td>
+</tr>
+</tbody></table>
+<table class="is-full-width is-fixed-layout">
+<tbody><tr>
+<th>Class field decorators for directives and components</th>
+<th><p><code>import { <a href="https://angular.io/api/core/Input" class="code-anchor">Input</a>, ... } from '@angular/core';</code>
+</p>
+</th>
+</tr>
+<tr>
+<td><code><b>@<a href="https://angular.io/api/core/Input" class="code-anchor">Input</a>()</b> myProperty;</code></td>
+<td><p>Declares an input property that you can update via property binding (example:
+<code>&lt;my-cmp [myProperty]="someExpression"&gt;</code>).</p>
+</td>
+</tr><tr>
+<td><code><b>@<a href="https://angular.io/api/core/Output" class="code-anchor">Output</a>()</b> myEvent = new <a href="https://angular.io/api/core/EventEmitter" class="code-anchor">EventEmitter</a>();</code></td>
+<td><p>Declares an output property that fires events that you can subscribe to with an event binding (example: <code>&lt;my-cmp (myEvent)="doSomething()"&gt;</code>).</p>
+</td>
+</tr><tr>
+<td><code><b>@<a href="https://angular.io/api/core/HostBinding" class="code-anchor">HostBinding</a>('class.valid')</b> isValid;</code></td>
+<td><p>Binds a host element property (here, the CSS class <code>valid</code>) to a directive/component property (<code>isValid</code>).</p>
+</td>
+</tr><tr>
+<td><code><b>@<a href="https://angular.io/api/core/HostListener" class="code-anchor">HostListener</a>('click', ['$event'])</b> onClick(e) {...}</code></td>
+<td><p>Subscribes to a host element event (<code>click</code>) with a directive/component method (<code>onClick</code>), optionally passing an argument (<code>$event</code>).</p>
+</td>
+</tr><tr>
+<td><code><b>@<a href="https://angular.io/api/core/ContentChild" class="code-anchor">ContentChild</a>(myPredicate)</b> myChildComponent;</code></td>
+<td><p>Binds the first result of the component content query (<code>myPredicate</code>) to a property (<code>myChildComponent</code>) of the class.</p>
+</td>
+</tr><tr>
+<td><code><b>@<a href="https://angular.io/api/core/ContentChildren" class="code-anchor">ContentChildren</a>(myPredicate)</b> myChildComponents;</code></td>
+<td><p>Binds the results of the component content query (<code>myPredicate</code>) to a property (<code>myChildComponents</code>) of the class.</p>
+</td>
+</tr><tr>
+<td><code><b>@<a href="https://angular.io/api/core/ViewChild" class="code-anchor">ViewChild</a>(myPredicate)</b> myChildComponent;</code></td>
+<td><p>Binds the first result of the component view query (<code>myPredicate</code>) to a property (<code>myChildComponent</code>) of the class. Not available for directives.</p>
+</td>
+</tr><tr>
+<td><code><b>@<a href="https://angular.io/api/core/ViewChildren" class="code-anchor">ViewChildren</a>(myPredicate)</b> myChildComponents;</code></td>
+<td><p>Binds the results of the component view query (<code>myPredicate</code>) to a property (<code>myChildComponents</code>) of the class. Not available for directives.</p>
+</td>
+</tr>
+</tbody></table>
+<table class="is-full-width is-fixed-layout">
+<tbody><tr>
+<th>Directive and component change detection and lifecycle hooks</th>
+<th><p>(implemented as class methods)
+</p>
+</th>
+</tr>
+<tr>
+<td><code><b>constructor(myService: MyService, ...)</b> { ... }</code></td>
+<td><p>Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.</p>
+</td>
+</tr><tr>
+<td><code><b>ngOnChanges(changeRecord)</b> { ... }</code></td>
+<td><p>Called after every change to input properties and before processing content or child views.</p>
+</td>
+</tr><tr>
+<td><code><b>ngOnInit()</b> { ... }</code></td>
+<td><p>Called after the constructor, initializing input properties, and the first call to <code>ngOnChanges</code>.</p>
+</td>
+</tr><tr>
+<td><code><b>ngDoCheck()</b> { ... }</code></td>
+<td><p>Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.</p>
+</td>
+</tr><tr>
+<td><code><b>ngAfterContentInit()</b> { ... }</code></td>
+<td><p>Called after <code>ngOnInit</code> when the component's or directive's content has been initialized.</p>
+</td>
+</tr><tr>
+<td><code><b>ngAfterContentChecked()</b> { ... }</code></td>
+<td><p>Called after every check of the component's or directive's content.</p>
+</td>
+</tr><tr>
+<td><code><b>ngAfterViewInit()</b> { ... }</code></td>
+<td><p>Called after <code>ngAfterContentInit</code> when the component's views and child views / the view that a directive is in has been initialized.</p>
+</td>
+</tr><tr>
+<td><code><b>ngAfterViewChecked()</b> { ... }</code></td>
+<td><p>Called after every check of the component's views and child views / the view that a directive is in.</p>
+</td>
+</tr><tr>
+<td><code><b>ngOnDestroy()</b> { ... }</code></td>
+<td><p>Called once, before the instance is destroyed.</p>
+</td>
+</tr>
+</tbody></table>
+<table class="is-full-width is-fixed-layout">
+<tbody><tr>
+<th>Dependency injection configuration</th>
+<th></th>
+</tr>
+<tr>
+<td><code>{ <b>provide</b>: MyService, <b>useClass</b>: MyMockService }</code></td>
+<td><p>Sets or overrides the provider for <code>MyService</code> to the <code>MyMockService</code> class.</p>
+</td>
+</tr><tr>
+<td><code>{ <b>provide</b>: MyService, <b>useFactory</b>: myFactory }</code></td>
+<td><p>Sets or overrides the provider for <code>MyService</code> to the <code>myFactory</code> factory function.</p>
+</td>
+</tr><tr>
+<td><code>{ <b>provide</b>: MyValue, <b>useValue</b>: 41 }</code></td>
+<td><p>Sets or overrides the provider for <code>MyValue</code> to the value <code>41</code>.</p>
+</td>
+</tr>
+</tbody></table>
+<table class="is-full-width is-fixed-layout">
+<tbody><tr>
+<th>Routing and navigation</th>
+<th><p><code>import { <a href="https://angular.io/api/router/Routes" class="code-anchor">Routes</a>, <a href="https://angular.io/api/router/RouterModule" class="code-anchor">RouterModule</a>, ... } from '@angular/router';</code>
+</p>
+</th>
+</tr>
+<tr>
+<td><code>const routes: <b><a href="https://angular.io/api/router/Routes" class="code-anchor">Routes</a></b> = [<br>  { path: '', component: HomeComponent },<br>  { path: 'path/:routeParam', component: MyComponent },<br>  { path: 'staticPath', component: ... },<br>  { path: '**', component: ... },<br>  { path: 'oldPath', redirectTo: '/staticPath' },<br>  { path: ..., component: ..., data: { message: 'Custom' } }<br>]);<br><br>const routing = RouterModule.forRoot(routes);</code></td>
+<td><p>Configures routes for the application. Supports static, parameterized, redirect, and wildcard routes. Also supports custom route data and resolve.</p>
+</td>
+</tr><tr>
+<td><code><br>&lt;<b><a href="https://angular.io/api/router/RouterOutlet" class="code-anchor">router-outlet</a></b>&gt;&lt;/<b><a href="https://angular.io/api/router/RouterOutlet" class="code-anchor">router-outlet</a></b>&gt;<br>&lt;<b><a href="https://angular.io/api/router/RouterOutlet" class="code-anchor">router-outlet</a></b> name="aux"&gt;&lt;/<b>router-outlet</b>&gt;<br></code></td>
+<td><p>Marks the location to load the component of the active route.</p>
+</td>
+</tr><tr>
+<td><code><br>&lt;<a href="https://angular.io/api/router/RouterLinkWithHref" class="code-anchor">a</a> <a href="https://angular.io/api/router/RouterLink" class="code-anchor">routerLink</a>="/path"&gt;<br>&lt;<a href="https://angular.io/api/router/RouterLinkWithHref" class="code-anchor">a</a> <b>[<a href="https://angular.io/api/router/RouterLink" class="code-anchor">routerLink</a>]</b>="[ '/path', routeParam ]"&gt;<br>&lt;a <b>[routerLink]</b>="[ '/path', { matrixParam: 'value' } ]"&gt;<br>&lt;a <b>[routerLink]</b>="[ '/path' ]" [queryParams]="{ page: 1 }"&gt;<br>&lt;a <b>[routerLink]</b>="[ '/path' ]" fragment="anchor"&gt;<br></code></td>
+<td><p>Creates a link to a different view based on a route instruction consisting of a route path, required and optional parameters, query parameters, and a fragment. To navigate to a root route, use the <code>/</code> prefix; for a child route, use the <code>./</code>prefix; for a sibling or parent, use the <code>../</code> prefix.</p>
+</td>
+</tr><tr>
+<td><code>&lt;<a href="https://angular.io/api/router/RouterLinkWithHref" class="code-anchor">a</a> [<a href="https://angular.io/api/router/RouterLink" class="code-anchor">routerLink</a>]="[ '/path' ]" <a href="https://angular.io/api/router/RouterLinkActive" class="code-anchor">routerLinkActive</a>="active"&gt;</code></td>
+<td><p>The provided classes are added to the element when the <code><a href="https://angular.io/api/router/RouterLink" class="code-anchor">routerLink</a></code> becomes the current active route.</p>
+</td>
+</tr><tr>
+<td><code>class <b><a href="https://angular.io/api/router/CanActivate" class="code-anchor">CanActivate</a></b>Guard implements <b><a href="https://angular.io/api/router/CanActivate" class="code-anchor">CanActivate</a></b> {<br>    canActivate(<br>      route: <a href="https://angular.io/api/router/ActivatedRouteSnapshot" class="code-anchor">ActivatedRouteSnapshot</a>,<br>      state: RouterStateSnapshot<br>    ): Observable&lt;boolean&gt;|Promise&lt;boolean&gt;|boolean { ... }<br>}<br><br>{ path: ..., canActivate: [<b>CanActivate</b>Guard] }</code></td>
+<td><p>An interface for defining a class that the router should call first to determine if it should activate this component. Should return a boolean or an Observable/Promise that resolves to a boolean.</p>
+</td>
+</tr><tr>
+<td><code>class <b><a href="https://angular.io/api/router/CanDeactivate" class="code-anchor">CanDeactivate</a></b>Guard implements <b><a href="https://angular.io/api/router/CanDeactivate" class="code-anchor">CanDeactivate</a></b>&lt;T&gt; {<br>    canDeactivate(<br>      component: T,<br>      route: ActivatedRouteSnapshot,<br>      state: RouterStateSnapshot<br>    ): Observable&lt;boolean&gt;|Promise&lt;boolean&gt;|boolean { ... }<br>}<br><br>{ path: ..., canDeactivate: [<b>CanDeactivate</b>Guard] }</code></td>
+<td><p>An interface for defining a class that the router should call first to determine if it should deactivate this component after a navigation. Should return a boolean or an Observable/Promise that resolves to a boolean.</p>
+</td>
+</tr><tr>
+<td><code>class <b><a href="https://angular.io/api/router/CanActivateChild" class="code-anchor">CanActivateChild</a></b>Guard implements <b><a href="https://angular.io/api/router/CanActivateChild" class="code-anchor">CanActivateChild</a></b> {<br>    canActivateChild(<br>      route: <a href="https://angular.io/api/router/ActivatedRouteSnapshot" class="code-anchor">ActivatedRouteSnapshot</a>,<br>      state: RouterStateSnapshot<br>    ): Observable&lt;boolean&gt;|Promise&lt;boolean&gt;|boolean { ... }<br>}<br><br>{ path: ..., canActivateChild: [CanActivateGuard],<br>    children: ... }</code></td>
+<td><p>An interface for defining a class that the router should call first to determine if it should activate the child route. Should return a boolean or an Observable/Promise that resolves to a boolean.</p>
+</td>
+</tr><tr>
+<td><code>class <b><a href="https://angular.io/api/router/Resolve" class="code-anchor">Resolve</a></b>Guard implements <b><a href="https://angular.io/api/router/Resolve" class="code-anchor">Resolve</a></b>&lt;T&gt; {<br>    resolve(<br>      route: <a href="https://angular.io/api/router/ActivatedRouteSnapshot" class="code-anchor">ActivatedRouteSnapshot</a>,<br>      state: RouterStateSnapshot<br>    ): Observable&lt;any&gt;|Promise&lt;any&gt;|any { ... }<br>}<br><br>{ path: ..., resolve: [<b>Resolve</b>Guard] }</code></td>
+<td><p>An interface for defining a class that the router should call first to resolve route data before rendering the route. Should return a value or an Observable/Promise that resolves to a value.</p>
+</td>
+</tr><tr>
+<td><code>class <b><a href="https://angular.io/api/router/CanLoad" class="code-anchor">CanLoad</a></b>Guard implements <b><a href="https://angular.io/api/router/CanLoad" class="code-anchor">CanLoad</a></b> {<br>    canLoad(<br>      route: <a href="https://angular.io/api/router/Route" class="code-anchor">Route</a><br>    ): Observable&lt;boolean&gt;|Promise&lt;boolean&gt;|boolean { ... }<br>}<br><br>{ path: ..., canLoad: [<b>CanLoad</b>Guard], loadChildren: ... }</code></td>
+<td><p>An interface for defining a class that the router should call first to check if the lazy loaded module should be loaded. Should return a boolean or an Observable/Promise that resolves to a boolean.</p>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+</div>
+<!-- links to this doc:
+-->
+<!-- links from this doc:
+ - api/common/CommonModule
+ - api/common/NgSwitch
+ - api/common/NgSwitchCase
+ - api/core/Component
+ - api/core/ContentChild
+ - api/core/ContentChildren
+ - api/core/Directive
+ - api/core/EventEmitter
+ - api/core/HostBinding
+ - api/core/HostListener
+ - api/core/Injectable
+ - api/core/Input
+ - api/core/NgModule
+ - api/core/Output
+ - api/core/Pipe
+ - api/core/ViewChild
+ - api/core/ViewChildren
+ - api/forms/FormsModule
+ - api/platform-browser-dynamic/platformBrowserDynamic
+ - api/platform-browser/BrowserModule
+ - api/router/ActivatedRouteSnapshot
+ - api/router/CanActivate
+ - api/router/CanActivateChild
+ - api/router/CanDeactivate
+ - api/router/CanLoad
+ - api/router/Resolve
+ - api/router/Route
+ - api/router/RouterLink
+ - api/router/RouterLinkActive
+ - api/router/RouterLinkWithHref
+ - api/router/RouterModule
+ - api/router/RouterOutlet
+ - api/router/Routes
+ - guide/cheatsheet#cheat-sheet
+--></div></aio-doc-viewer><aio-dt><!----></aio-dt></section></mat-sidenav-content></mat-sidenav-container><!----><footer class="no-print"><aio-footer><div class="grid-fluid"><!----><div class="footer-block ng-star-inserted"><h3>Resources</h3><ul><!----><li class="ng-star-inserted"><a class="link" href="https://angular.io/about" title="Angular contributors.">About</a></li><li class="ng-star-inserted"><a class="link" href="https://angular.io/resources" title="Angular tools, training, and blogs from around the web.">Resource Listing</a></li><li class="ng-star-inserted"><a class="link" href="https://angular.io/presskit" title="Press contacts, logos, and branding.">Press Kit</a></li><li class="ng-star-inserted"><a class="link" href="https://blog.angular.io/" title="Angular Blog">Blog</a></li></ul></div><div class="footer-block ng-star-inserted"><h3>Help</h3><ul><!----><li class="ng-star-inserted"><a class="link" href="https://stackoverflow.com/questions/tagged/angular" title="Stack Overflow: where the community answers your technical Angular questions.">Stack Overflow</a></li><li class="ng-star-inserted"><a class="link" href="https://gitter.im/angular/angular" title="Chat about Angular with other birds of a feather.">Gitter</a></li><li class="ng-star-inserted"><a class="link" href="https://github.com/angular/angular/issues" title="Post issues and suggestions on github.">Report Issues</a></li><li class="ng-star-inserted"><a class="link" href="https://github.com/angular/code-of-conduct/blob/master/CODE_OF_CONDUCT.md" title="Treating each other with respect.">Code of Conduct</a></li></ul></div><div class="footer-block ng-star-inserted"><h3>Community</h3><ul><!----><li class="ng-star-inserted"><a class="link" href="https://angular.io/events" title="Post issues and suggestions on github.">Events</a></li><li class="ng-star-inserted"><a class="link" href="http://www.meetup.com/topics/angularjs/" title="Attend a meetup and learn from fellow developers.">Meetups</a></li><li class="ng-star-inserted"><a class="link" href="https://twitter.com/angular" title="Twitter">Twitter</a></li><li class="ng-star-inserted"><a class="link" href="https://github.com/angular/angular" title="GitHub">GitHub</a></li><li class="ng-star-inserted"><a class="link" href="https://angular.io/contribute" title="Contribute to Angular">Contribute</a></li></ul></div><div class="footer-block ng-star-inserted"><h3>Languages</h3><ul><!----><li class="ng-star-inserted"><a class="link" href="https://angular.cn/" title="中文版">中文版</a></li><li class="ng-star-inserted"><a class="link" href="https://angular.jp/" title="日本語版">日本語版</a></li></ul></div></div><p> Powered by Google ©2010-2018. Code licensed under an <a href="https://angular.io/license" title="License text">MIT-style License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. </p><p> Version 5.2.11-build.43496+sha.402f452. </p></aio-footer></footer></aio-shell><noscript>&lt;div class="background-sky hero"&gt;&lt;/div&gt;&lt;section id="intro"&gt;&lt;div class="hero-logo"&gt;&lt;img src="assets/images/logos/angular/angular.svg" width="250" height="250"&gt;&lt;/div&gt;&lt;div class="homepage-container"&gt;&lt;div class="hero-headline"&gt;One framework.&lt;br&gt;Mobile &amp;amp; desktop.&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;h2 style="color: red; text-align: center; margin-top: -50px"&gt;&lt;b&gt;&lt;i&gt;This website requires JavaScript.&lt;/i&gt;&lt;/b&gt;&lt;/h2&gt;</noscript><script type="text/javascript" src="./Angular - Cheat Sheet_files/inline.e52b57f9f301a2a706f5.bundle.js.download"></script><script type="text/javascript" src="./Angular - Cheat Sheet_files/polyfills.4c154c76af75c37320fb.bundle.js.download"></script><script type="text/javascript" src="./Angular - Cheat Sheet_files/main.2d90cc78dadbcd187e33.bundle.js.download"></script></body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>
